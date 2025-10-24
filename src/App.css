@@ -1,38 +1,236 @@
-.App {
-  text-align: center;
+/* src/styles.css */
+:root {
+  --maxw: 1100px;
+  font-family: Inter, system-ui, Arial, sans-serif;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: #f6f8fb;
+  color: #222;
+  display: flex;
+  justify-content: center;
+}
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.topnav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background: #fff;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
+  margin-bottom: 12px;
+}
+.topnav .brand {
+  font-weight: 700;
+  font-size: 20px;
+  text-decoration: none;
+  color: #111;
+}
+.nav-links a {
+  margin-right: 10px;
+  text-decoration: none;
+  color: #007bff;
+}
+.link-btn {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  font-size: 14px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.auth-card,
+.card-form {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.04);
+  max-width: 720px;
+  margin: 20px auto;
+}
+.auth-card input,
+.card-form input,
+.card-form select {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #e6e9ef;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+.auth-card button,
+.card-form button {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 6px;
+  background: #007bff;
+  color: #fff;
+  cursor: pointer;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.error {
+  color: #b00020;
+  margin: 8px 0;
+}
+.field-error {
+  color: #b00020;
+  font-size: 12px;
+  min-height: 16px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+.product-card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.04);
+  cursor: pointer;
   display: flex;
   flex-direction: column;
+}
+.product-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+.card-body {
+  padding: 12px;
+  font-size: 14px;
+}
+.card-title {
+  margin: 0 0 6px 0;
+  font-size: 16px;
+}
+
+.filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+  background: #fff;
+  padding: 12px;
+  border-radius: 8px;
+}
+.filters input,
+.filters select {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  min-width: 120px;
+}
+
+.pagination {
+  display: flex;
+  gap: 6px;
+  margin-top: 12px;
+  align-items: center;
+}
+.pagination button {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  background: #fff;
+  cursor: pointer;
+}
+.pagination .active {
+  background: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  z-index: 999;
+}
+.modal {
+  background: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 640px;
+  max-height: 90vh;
+  overflow: auto;
+  position: relative;
+}
+.modal .close {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.spinner {
+  display: inline-block;
+  padding: 8px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.results-meta {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #666;
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 80%;
+  overflow-y: auto;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 20px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* responsive */
+@media (max-width: 640px) {
+  .filters {
+    flex-direction: column;
+    align-items: stretch;
   }
-  to {
-    transform: rotate(360deg);
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   }
 }
