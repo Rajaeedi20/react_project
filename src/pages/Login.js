@@ -27,15 +27,22 @@ export default function Login() {
   }
 
   return (
-    <div className="auth-card">
-      <h2>Login</h2>
+    <div className="auth-card mt-5">
+      <h3 className="text-center">Login</h3>
       {err && <div className="error">{err}</div>}
       <form onSubmit={handleSubmit}>
         <input required placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
         <input required placeholder="Password" type="password" value={password} onChange={e => setPassword(e.target.value)} />
-        <button disabled={loading}>{loading ? <Spinner /> : "Login"}</button>
+        <button
+          type="submit"
+          className="btn btn-primary w-10 mx-auto d-block"
+          disabled={loading}
+        >
+          {loading ? <Spinner /> : "Login"}
+        </button>
       </form>
-      <div className="muted">Don't have an account? <Link to="/signup">Signup</Link></div>
-    </div>
+      <div className="text-center mt-3 text-muted">
+        Don't have an account? <Link to="/signup" className="text-decoration-none">Signup</Link>
+      </div>    </div>
   );
 }

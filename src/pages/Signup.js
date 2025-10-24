@@ -18,7 +18,7 @@ export default function Signup() {
     setLoading(true);
     try {
       await signup(email, password);
-      navigate("/products");
+      navigate("/login");
     } catch (error) {
       setErr(error.message || "Failed to signup");
     }
@@ -27,14 +27,14 @@ export default function Signup() {
 
   return (
     <div className="auth-card">
-      <h2>Signup</h2>
+      <h3 className="text-center">Signup</h3>
       {err && <div className="error">{err}</div>}
       <form onSubmit={handleSubmit}>
         <input required placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
         <input required placeholder="Password" type="password" value={password} onChange={e => setPassword(e.target.value)} />
-        <button disabled={loading}>{loading ? <Spinner /> : "Create account"}</button>
+        <button className="btn btn-primary w-10 mx-auto d-block" disabled={loading}>{loading ? <Spinner /> : "Create account"}</button>
       </form>
-      <div className="muted">Already have an account? <Link to="/login">Login</Link></div>
+      <div className="text-center mt-3 text-muted">Already have an account? <Link to="/login">Login</Link></div>
     </div>
   );
 }
